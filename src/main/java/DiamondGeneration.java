@@ -5,7 +5,7 @@ public class DiamondGeneration {
 
     private Character letter;
     private int characterCode;
-    private static int STARTING_CHARACTER = String.valueOf('A').codePointAt(0);
+    private static int STARTING_CHARACTER_CODE = String.valueOf('A').codePointAt(0);
 
     public DiamondGeneration(char letter) {
         this.letter = letter;
@@ -14,32 +14,30 @@ public class DiamondGeneration {
 
     public String generate() {
         StringBuilder result = new StringBuilder();
-        int currentCharacter = STARTING_CHARACTER;
-        int characterRank = characterCode - STARTING_CHARACTER;
+        int currentCharacterCode = STARTING_CHARACTER_CODE;
+        int characterRank = characterCode - STARTING_CHARACTER_CODE;
         int wsPaddingNumber = characterRank;
-        if(letter == 'A'){
-            result.append(generateWS(wsPaddingNumber)).append((char)currentCharacter)
-                  .append(generateWS(wsPaddingNumber)).append("\n");
-        }else if(letter == 'C'){
-            result.append(generateWS(wsPaddingNumber)).append((char)currentCharacter)
-                    .append(generateWS(wsPaddingNumber)).append("\n");
-            
-            int wsCenterNumber = -1;
-            for(int i=0; i < 2; i++){
-                wsPaddingNumber--; currentCharacter++; wsCenterNumber+=2;
-                result.append(generateWS(wsPaddingNumber)).append((char)currentCharacter)
-                      .append(generateWS(wsCenterNumber)).append((char)currentCharacter)
-                      .append(generateWS(wsPaddingNumber)).append("\n");
-            }
-            wsPaddingNumber++; currentCharacter--; wsCenterNumber-=2;
-            result.append(generateWS(wsPaddingNumber)).append((char)currentCharacter).append(generateWS(wsCenterNumber)).append((char)currentCharacter).append(generateWS(wsPaddingNumber)).append("\n");
-            wsPaddingNumber++; currentCharacter--;
-            result.append(generateWS(wsPaddingNumber)).append((char)currentCharacter).append(generateWS(wsPaddingNumber)).append("\n");
+        int wsCenterNumber = -1;
 
-        }else{
-            result.append(generateWS(1)).append("A").append(generateWS(1)).append("\n");
-            result.append(generateWS(0)).append("B").append(generateWS(1)).append("B").append(generateWS(0)).append("\n");
-            result.append(generateWS(1)).append("A").append(generateWS(1)).append("\n");
+        result.append(generateWS(wsPaddingNumber)).append((char)currentCharacterCode)
+                .append(generateWS(wsPaddingNumber)).append("\n");
+
+        if(letter != 'A') {
+            for (int i = 0; i < characterRank; i++) {
+                wsPaddingNumber-- ;currentCharacterCode++; wsCenterNumber += 2;
+                result.append(generateWS(wsPaddingNumber)).append((char) currentCharacterCode)
+                        .append(generateWS(wsCenterNumber)).append((char) currentCharacterCode)
+                        .append(generateWS(wsPaddingNumber)).append("\n");
+            }
+            for(int i = characterRank -1; i > 0; i--){
+                wsPaddingNumber++; currentCharacterCode--; wsCenterNumber -= 2;
+                result.append(generateWS(wsPaddingNumber)).append((char) currentCharacterCode)
+                        .append(generateWS(wsCenterNumber)).append((char) currentCharacterCode)
+                        .append(generateWS(wsPaddingNumber)).append("\n");
+            }
+            wsPaddingNumber++; currentCharacterCode--;
+            result.append(generateWS(wsPaddingNumber)).append((char)currentCharacterCode)
+                    .append(generateWS(wsPaddingNumber)).append("\n");
         }
         return result.toString();
     }
