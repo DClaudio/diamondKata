@@ -17,7 +17,20 @@ public class DiamondGenerationTest {
     @Test
     public void generateForBTest(){
         DiamondGeneration diaGen = new DiamondGeneration('B');
-        String expectedResult = "  A \nB  B\n  A  ";
-        assertEquals("Assert for A letter diamond", expectedResult, diaGen.generate());
+        String expectedResult = " A \n"+
+                                "B B\n"+
+                                " A ";
+        assertEquals("Assert for B letter diamond", expectedResult, diaGen.generate());
+    }
+
+    @Test
+    public void generateForCTest(){
+        DiamondGeneration diaGen = new DiamondGeneration('C');
+        String expectedResult = "  A  \n"+
+                                " B B \n"+
+                                "C   C\n"+
+                                " B B \n"+
+                                "  A  ";
+        assertEquals("Assert for Cletter diamond", expectedResult, diaGen.generate());
     }
 }

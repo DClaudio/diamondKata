@@ -9,7 +9,9 @@ public class DiamondGeneration {
 
     public String generate() {
         if(letter == 'B'){
-            return "  A \nB  B\n  A  ";
+            return " A \n"+
+                   "B B\n"+
+                   " A ";
         }else{
             return "A";
 
