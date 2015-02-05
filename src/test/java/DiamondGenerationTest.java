@@ -31,6 +31,6 @@ public class DiamondGenerationTest {
                                 "C   C\n"+
                                 " B B \n"+
                                 "  A  ";
-        assertEquals("Assert for Cletter diamond", expectedResult, diaGen.generate());
+        assertEquals("Assert for C letter diamond", expectedResult, diaGen.generate());
     }
 }
