@@ -21,8 +21,8 @@ public class DiamondGeneration2Test {
     public void generateForBTest(){
         DiamondGeneration2 diaGen = new DiamondGeneration2('B');
         String expectedResult = " A \n"+
-                "B B\n"+
-                " A \n";
+                                "B B\n"+
+                                " A \n";
         assertEquals("Assert for B letter diamond", expectedResult, diaGen.generate());
     }
 
@@ -30,10 +30,10 @@ public class DiamondGeneration2Test {
     public void generateForCTest(){
         DiamondGeneration2 diaGen = new DiamondGeneration2('C');
         String expectedResult = "  A  \n"+
-                " B B \n"+
-                "C   C\n"+
-                " B B \n"+
-                "  A  \n";
+                                " B B \n"+
+                                "C   C\n"+
+                                " B B \n"+
+                                "  A  \n";
         assertEquals("Assert for C letter diamond", expectedResult, diaGen.generate());
     }
 
@@ -41,12 +41,12 @@ public class DiamondGeneration2Test {
     public void generateForDTest(){
         DiamondGeneration2 diaGen = new DiamondGeneration2('D');
         String expectedResult = "   A   \n"+
-                "  B B  \n"+
-                " C   C \n"+
-                "D     D\n"+
-                " C   C \n"+
-                "  B B  \n"+
-                "   A   \n";
+                                "  B B  \n"+
+                                " C   C \n"+
+                                "D     D\n"+
+                                " C   C \n"+
+                                "  B B  \n"+
+                                "   A   \n";
         assertEquals("Assert for D letter diamond", expectedResult, diaGen.generate());
     }*/
 }
