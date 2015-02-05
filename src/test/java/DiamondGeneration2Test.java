@@ -37,7 +37,7 @@ public class DiamondGeneration2Test {
         assertEquals("Assert for C letter diamond", expectedResult, diaGen.generate());
     }
 
-/*    @Test
+    @Test
     public void generateForDTest(){
         DiamondGeneration2 diaGen = new DiamondGeneration2('D');
         String expectedResult = "   A   \n"+
@@ -48,5 +48,5 @@ public class DiamondGeneration2Test {
                                 "  B B  \n"+
                                 "   A   \n";
         assertEquals("Assert for D letter diamond", expectedResult, diaGen.generate());
-    }*/
+    }
 }

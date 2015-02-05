@@ -16,13 +16,15 @@ public class DiamondGeneration2 {
         StringBuilder result = new StringBuilder();
         int characterCount = characterCode - STARTING_CHARACTER_CODE;
         int middleLineSpaces = 2 * (characterCount) - 1;
+        int currentCharacterCode = characterCode;
         if(letter == 'A'){
             result.append(letter+"\n");
         }else{
             result.append(letter + genWS(middleLineSpaces) + letter + "\n");
-            for(int i=0; i<characterCount-1; i++){
-                String line2 = " B B \n";
-                result.insert(0,line2).append(line2);
+            for(int i=0,padding=1; i<characterCount-1; i++,padding++){
+                middleLineSpaces-=2; currentCharacterCode--;
+                String line = genWS(padding)+ (char)currentCharacterCode + genWS(middleLineSpaces) + (char)currentCharacterCode + genWS(padding) + "\n";
+                result.insert(0,line).append(line);
             }
             String diamondsEdge = genWS(characterCount) + "A" + genWS(characterCount) + "\n";
             result.insert(0,diamondsEdge).append(diamondsEdge);
