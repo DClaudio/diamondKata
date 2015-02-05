@@ -33,4 +33,17 @@ public class DiamondGenerationTest {
                                 "  A  \n";
         assertEquals("Assert for C letter diamond", expectedResult, diaGen.generate());
     }
+
+    @Test
+    public void generateForDTest(){
+        DiamondGeneration diaGen = new DiamondGeneration('D');
+        String expectedResult = "   A   \n"+
+                                "  B B  \n"+
+                                " C   C \n"+
+                                "D     D\n"+
+                                " C   C \n"+
+                                "  B B  \n"+
+                                "   A   \n";
+        assertEquals("Assert for D letter diamond", expectedResult, diaGen.generate());
+    }
 }
