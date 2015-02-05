@@ -14,13 +14,27 @@ public class DiamondGeneration {
 
     public String generate() {
         String result = "";
-        if (letter == 'B') {
-            result += " A \n";
-            result += "B B\n";
-            result += " A ";
-        } else{
+        if(letter == 'A'){
             result += "A";
+        }else if(letter == 'C'){
+            result += generateWS(2) + "A" + generateWS(2) + "\n";
+            result += generateWS(1) + "B" +generateWS(1)+ "B" + generateWS(1) + "\n";
+            result += generateWS(0) + "C" +generateWS(3)+ "C" + generateWS(0) + "\n";
+            result += generateWS(1) + "B" +generateWS(1)+ "B" + generateWS(1) + "\n";
+            result += generateWS(2) + "A" + generateWS(2);
+        }else{
+            result += generateWS(1) + "A" + generateWS(1) + "\n";
+            result += generateWS(0) + "B" +generateWS(1)+ "B" + generateWS(0) + "\n";
+            result += generateWS(1) + "A" + generateWS(1);
         }
         return result;
+    }
+
+    private String generateWS(int count){
+        StringBuilder result = new StringBuilder();
+        for(int i=0; i< count; i++){
+            result.append(" ");
+        }
+        return result.toString();
     }
 }
