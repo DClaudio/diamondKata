@@ -8,13 +8,14 @@ public class DiamondGeneration {
     }
 
     public String generate() {
-        if(letter == 'B'){
-            return " A \n"+
-                   "B B\n"+
-                   " A ";
-        }else{
-            return "A";
 
+        int cp = String.valueOf(letter).codePointAt(0);
+        String result = "A";
+        if(letter == 'B'){
+            result = " A \n"+
+                     "B B\n"+
+                     " A ";
         }
+        return result;
     }
 }
