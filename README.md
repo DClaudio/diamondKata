@@ -4,8 +4,8 @@ Given a letter, print a diamond starting with ‘A’ with the supplied letter a
 
 For example: print-diamond ‘C’ prints
 
-  A
- B B
-C   C
- B B
-  A
+__A__
+_B_B_
+C___C
+_B_B_
+__A__
