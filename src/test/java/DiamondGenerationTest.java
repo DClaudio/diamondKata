@@ -10,7 +10,7 @@ public class DiamondGenerationTest {
     @Test
     public void generateForATest(){
         DiamondGeneration diaGen = new DiamondGeneration('A');
-        String expectedResult = "A";
+        String expectedResult = "A\n";
         assertEquals("Assert for A letter diamond", expectedResult, diaGen.generate());
     }
 
@@ -19,7 +19,7 @@ public class DiamondGenerationTest {
         DiamondGeneration diaGen = new DiamondGeneration('B');
         String expectedResult = " A \n"+
                                 "B B\n"+
-                                " A ";
+                                " A \n";
         assertEquals("Assert for B letter diamond", expectedResult, diaGen.generate());
     }
 
@@ -30,7 +30,7 @@ public class DiamondGenerationTest {
                                 " B B \n"+
                                 "C   C\n"+
                                 " B B \n"+
-                                "  A  ";
+                                "  A  \n";
         assertEquals("Assert for C letter diamond", expectedResult, diaGen.generate());
     }
 }

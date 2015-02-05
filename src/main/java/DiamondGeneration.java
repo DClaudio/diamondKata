@@ -5,7 +5,7 @@ public class DiamondGeneration {
 
     private Character letter;
     private int characterCode;
-    private static int startingCharacterCode = String.valueOf('A').codePointAt(0);
+    private static int STARTING_CHARACTER = String.valueOf('A').codePointAt(0);
 
     public DiamondGeneration(char letter) {
         this.letter = letter;
@@ -13,21 +13,27 @@ public class DiamondGeneration {
     }
 
     public String generate() {
-        String result = "";
+        StringBuilder result = new StringBuilder();
         if(letter == 'A'){
-            result += "A";
+            result.append( "A\n");
         }else if(letter == 'C'){
-            result += generateWS(2) + "A" + generateWS(2) + "\n";
-            result += generateWS(1) + "B" +generateWS(1)+ "B" + generateWS(1) + "\n";
-            result += generateWS(0) + "C" +generateWS(3)+ "C" + generateWS(0) + "\n";
-            result += generateWS(1) + "B" +generateWS(1)+ "B" + generateWS(1) + "\n";
-            result += generateWS(2) + "A" + generateWS(2);
+            int wsNumber = 2;
+            int character = STARTING_CHARACTER;
+            result.append(generateWS(wsNumber)).append((char)character).append(generateWS(wsNumber)).append("\n");
+            wsNumber--; character ++;
+            result.append(generateWS(wsNumber)).append((char)character).append(generateWS(1)).append((char)character).append(generateWS(wsNumber)).append("\n");
+            wsNumber--; character ++;
+            result.append(generateWS(wsNumber)).append((char)character).append(generateWS(3)).append((char)character).append(generateWS(wsNumber)).append("\n");
+            wsNumber++; character --;
+            result.append(generateWS(wsNumber)).append((char)character).append(generateWS(1)).append((char)character).append(generateWS(wsNumber)).append("\n");
+            wsNumber++; character --;
+            result.append(generateWS(wsNumber)).append((char)character).append(generateWS(wsNumber)).append("\n");
         }else{
-            result += generateWS(1) + "A" + generateWS(1) + "\n";
-            result += generateWS(0) + "B" +generateWS(1)+ "B" + generateWS(0) + "\n";
-            result += generateWS(1) + "A" + generateWS(1);
+            result.append(generateWS(1)).append("A").append(generateWS(1)).append("\n");
+            result.append(generateWS(0)).append("B").append(generateWS(1)).append("B").append(generateWS(0)).append("\n");
+            result.append(generateWS(1)).append("A").append(generateWS(1)).append("\n");
         }
-        return result;
+        return result.toString();
     }
 
     private String generateWS(int count){
