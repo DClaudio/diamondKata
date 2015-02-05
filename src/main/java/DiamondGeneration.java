@@ -15,21 +15,21 @@ public class DiamondGeneration {
     public String generate() {
         StringBuilder result = new StringBuilder();
         int currentCharacterCode = STARTING_CHARACTER_CODE;
-        int characterRank = characterCode - STARTING_CHARACTER_CODE;
-        int wsPaddingNumber = characterRank;
+        int numberOfCharacters = characterCode - STARTING_CHARACTER_CODE;
+        int wsPaddingNumber = numberOfCharacters;
         int wsCenterNumber = -1;
 
         result.append(generateWS(wsPaddingNumber)).append((char)currentCharacterCode)
                 .append(generateWS(wsPaddingNumber)).append("\n");
 
         if(letter != 'A') {
-            for (int i = 0; i < characterRank; i++) {
+            for (int i = 0; i < numberOfCharacters; i++) {
                 wsPaddingNumber-- ;currentCharacterCode++; wsCenterNumber += 2;
                 result.append(generateWS(wsPaddingNumber)).append((char) currentCharacterCode)
                         .append(generateWS(wsCenterNumber)).append((char) currentCharacterCode)
                         .append(generateWS(wsPaddingNumber)).append("\n");
             }
-            for(int i = characterRank -1; i > 0; i--){
+            for(int i = numberOfCharacters -1; i > 0; i--){
                 wsPaddingNumber++; currentCharacterCode--; wsCenterNumber -= 2;
                 result.append(generateWS(wsPaddingNumber)).append((char) currentCharacterCode)
                         .append(generateWS(wsCenterNumber)).append((char) currentCharacterCode)
