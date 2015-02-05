@@ -14,20 +14,28 @@ public class DiamondGeneration {
 
     public String generate() {
         StringBuilder result = new StringBuilder();
+        int currentCharacter = STARTING_CHARACTER;
+        int characterRank = characterCode - STARTING_CHARACTER;
+        int wsPaddingNumber = characterRank;
         if(letter == 'A'){
-            result.append( "A\n");
+            result.append(generateWS(wsPaddingNumber)).append((char)currentCharacter)
+                  .append(generateWS(wsPaddingNumber)).append("\n");
         }else if(letter == 'C'){
-            int wsNumber = 2;
-            int character = STARTING_CHARACTER;
-            result.append(generateWS(wsNumber)).append((char)character).append(generateWS(wsNumber)).append("\n");
-            wsNumber--; character ++;
-            result.append(generateWS(wsNumber)).append((char)character).append(generateWS(1)).append((char)character).append(generateWS(wsNumber)).append("\n");
-            wsNumber--; character ++;
-            result.append(generateWS(wsNumber)).append((char)character).append(generateWS(3)).append((char)character).append(generateWS(wsNumber)).append("\n");
-            wsNumber++; character --;
-            result.append(generateWS(wsNumber)).append((char)character).append(generateWS(1)).append((char)character).append(generateWS(wsNumber)).append("\n");
-            wsNumber++; character --;
-            result.append(generateWS(wsNumber)).append((char)character).append(generateWS(wsNumber)).append("\n");
+            result.append(generateWS(wsPaddingNumber)).append((char)currentCharacter)
+                    .append(generateWS(wsPaddingNumber)).append("\n");
+            
+            int wsCenterNumber = -1;
+            for(int i=0; i < 2; i++){
+                wsPaddingNumber--; currentCharacter++; wsCenterNumber+=2;
+                result.append(generateWS(wsPaddingNumber)).append((char)currentCharacter)
+                      .append(generateWS(wsCenterNumber)).append((char)currentCharacter)
+                      .append(generateWS(wsPaddingNumber)).append("\n");
+            }
+            wsPaddingNumber++; currentCharacter--; wsCenterNumber-=2;
+            result.append(generateWS(wsPaddingNumber)).append((char)currentCharacter).append(generateWS(wsCenterNumber)).append((char)currentCharacter).append(generateWS(wsPaddingNumber)).append("\n");
+            wsPaddingNumber++; currentCharacter--;
+            result.append(generateWS(wsPaddingNumber)).append((char)currentCharacter).append(generateWS(wsPaddingNumber)).append("\n");
+
         }else{
             result.append(generateWS(1)).append("A").append(generateWS(1)).append("\n");
             result.append(generateWS(0)).append("B").append(generateWS(1)).append("B").append(generateWS(0)).append("\n");
